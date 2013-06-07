@@ -24,6 +24,13 @@ describe "Static pages" do
     end
   end
 
+  describe "Contact Us" do
+    it "should have the content 'Contact Us'" do
+      visit '/static_pages/contact'
+      expect(page).to have_content('Contact Us')
+    end
+  end
+
   describe "Dynamic Page Title" do
 
     it "should have the right title 'Home'" do
@@ -39,6 +46,11 @@ describe "Static pages" do
     it "should have the title 'About Us'" do
       visit '/static_pages/about'
       expect(page).to have_title("Ruby on Rails Tutorial Sample App | About Us")
+    end
+
+    it "should have the title 'Contact Us'" do
+      visit '/static_pages/contact' 
+      expect(page).to have_title("Ruby on Rails Tutorial Sample App | Contact Us")
     end
 
   end
