@@ -8,6 +8,17 @@ describe "Static pages" do
       visit '/static_pages/home'
       expect(page).to have_content('Sample App')
     end
+
+    it "should have the base title" do
+      visit '/static_pages/home'
+      expect(page).to have_title("Ruby on Rails Tutorial Sample App")
+    end
+
+    it "should not have a custom page title" do
+      visit '/static_pages/home'
+      expect(page).not_to have_title('| Home')
+    end
+    
   end
 
   describe "Help page" do
@@ -33,10 +44,10 @@ describe "Static pages" do
 
   describe "Dynamic Page Title" do
 
-    it "should have the right title 'Home'" do
-      visit '/static_pages/home'
-      expect(page).to have_title("Ruby on Rails Tutorial Sample App | Home")
-    end
+    # it "should have the right title 'Home'" do
+    #   visit '/static_pages/home'
+    #   expect(page).to have_title("Ruby on Rails Tutorial Sample App | Home")
+    # end
 
      it "should have the title 'Help'" do
       visit '/static_pages/help'
